@@ -1,27 +1,24 @@
 "use client";
-import { useEffect, useRef } from "react";
-import ReactGodot from "react-godot-new";
+import { useState } from "react";
 
 export default function Home() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "/html/index.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  const [play, setPlay] = useState<boolean>(false);
 
   return (
-    <main className="bg-yellow-700">
-      <h1>Home</h1>
-      <p>Welcome to the home page.</p>
-      <iframe src="/html/index.html" width="1080" height="620" />
-      {/* <iframe src="http://localhost:8000" width="1280" height="720" /> */}
+    <main className="min-h-screen antialiased flex flex-col items-center bg-amber-300">
+      <h1 className="my-5 text-3xl font-bold text-gray-950">Space Shooter</h1>
+      <div className="flex justify-center items-center">
+        {play ? (
+          <iframe src="/html/index.html" width="1080" height="620" />
+        ) : (
+          <button
+            onClick={() => setPlay(true)}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Play
+          </button>
+        )}
+      </div>
     </main>
   );
 }
