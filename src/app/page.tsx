@@ -20,7 +20,7 @@ export default function Home() {
     <main className="bg-yellow-700">
       <h1>Home</h1>
       <p>Welcome to the home page.</p>
-      <iframe src="/html/index.html" width="1280" height="720" />
+      <iframe src="/html/index.html" width="1080" height="620" />
       {/* <iframe src="http://localhost:8000" width="1280" height="720" /> */}
     </main>
   );
